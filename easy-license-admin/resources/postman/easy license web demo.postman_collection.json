@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "affd6809-57fa-4202-b65c-4ec72e7ee667",
+		"name": "easy license web demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "更新web许可证",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"licenseInfo\":\"{\\r\\n  \\\"licenseVisible\\\" : {\\r\\n    \\\"name\\\" : \\\"easy license\\\",\\r\\n    \\\"describe\\\" : null,\\r\\n    \\\"version\\\" : \\\"1.0\\\"\\r\\n  },\\r\\n  \\\"licenseInfo\\\" : \\\"e5EvWRUSrMK0SuJqZ1RF50AK3WYCeN0efnWFUjNv69Pc2NCJmccu9xc+qT+QbIYb7NWDwfuvnlKniVMZeZUx1hEIKLAYr69EWG7V1LYpD6Y8gpsKGLKiGFkXW1SA+KQZJba29uCIEY4JBTIn0aFxRMTRUnHQ9R4U5t5tu5yRXCRbWiqE2qrSrAFE2x/K9BdeFC0qq5iKJUeGZMfxlTVdFHmv0ltbmpebICvJFASIQki0YGLp7QRJNrSzAaQwhU/+I+Ghi2l/mwg1mTf8wIop4HT8czRpgci8gTjvwjREjDFfN1JeJg8sw+sV17BBrHXrM568yM1HFteRNBmLjFfexw==\\\"\\r\\n}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8080/license/refresh"
+			},
+			"response": []
+		},
+		{
+			"name": "请求不需要许可的接口",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://127.0.0.1:8080/test/query/uncheck"
+			},
+			"response": []
+		},
+		{
+			"name": "请求需要许可的接口",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://127.0.0.1:8080/test/query/check"
+			},
+			"response": []
+		}
+	]
+}

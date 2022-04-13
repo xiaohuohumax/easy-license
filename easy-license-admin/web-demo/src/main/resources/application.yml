@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: web-license
+
+server:
+  port: 8080
+
+license:
+  public-key-file-path: D:\Github\easy-license\easy-license-admin\web-demo\src\main\resources\public.key
+  license-file-path: D:\Github\easy-license\easy-license-admin\web-demo\src\main\resources\license.json

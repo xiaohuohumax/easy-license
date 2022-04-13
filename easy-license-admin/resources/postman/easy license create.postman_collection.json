@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "efc556a2-e499-477d-a8a6-336fa543daff",
+		"name": "easy license create",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "创建密钥对",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://127.0.0.1:18080/license/create/key"
+			},
+			"response": []
+		},
+		{
+			"name": "创建许可证",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"keys\": {\r\n        \"privateKey\": \"MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAKt8hHJ7uHlwq5kXHxH6/0NQjkzWNZgDHz9PSwxo80/fFRk7dHBmNeQxTNNTenKQ6zKic5rlCnKX52/P/MEpgczIgBD/naODQS9gzQTHRuuZHej2JL6+lxNS3UnY7wAGu71zFXmLs/2NffB5jJa8dAN2qdITf38o8JYKN0g+hnenAgMBAAECgYEAnT0jRMXktJV3AnyM5LO880Ad+p4/rg7OzAIs0kg5MXdfpS866QUPTRlXVD4q/Hmc72S9k72IAuL+NywCmisw882lVW+y87WsYUmhXjbgpUnO/GkDQ0lNU5D2ZKKHdyavDPvkZ9UTKdlkr8nFp1ADfCXrhCNSvfoPdhD9d6rOIoECQQDsfo2bOdh0E143YVFXj0ReT2hg4Agyzx1oouWPOQfnr0c5j6fk/uPQlC+Qn33u4CYN8HChcWs5TZsQK1oOJhERAkEAuaFbfu/0QrnpZuRDbYqDHEB1vswvH1l7rGWMctRG9W0iWw12el9J+jJ14w7d2kuCk7gGksKzuMbrF9GDPcv9NwJBAJ0NRfjpp0cefZkFdcFSETMYRNbgsFEdnggY9Z3xX8CKdCBTuEmow52Gazf90uHJ1Tu4ivOLoItDcFCCmaF/wiECQE/vQNQXhgpZvj0VXEfGVpEK3OktSblpMg1ZqTIlYOz8csfcs0Ec2WFI62S8GSKQU4lCvGnkN7oAxml6SdaJid8CQCl2j74roj61ibm0jr/74l2zcah68j4Fxko7Lan9Ae8T4ZWBMIs7hN8uBNBIjJ3EQyJhVHwJRDWbXn3Ww84fVTQ=\",\r\n        \"publicKey\": \"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrfIRye7h5cKuZFx8R+v9DUI5M1jWYAx8/T0sMaPNP3xUZO3RwZjXkMUzTU3pykOsyonOa5Qpyl+dvz/zBKYHMyIAQ/52jg0EvYM0Ex0brmR3o9iS+vpcTUt1J2O8ABru9cxV5i7P9jX3weYyWvHQDdqnSE39/KPCWCjdIPoZ3pwIDAQAB\"\r\n    },\r\n    \"licenseData\": {\r\n        \"licenseVisible\": {\r\n            \"describe\": \"xiaohuohu 自定义许可证\",\r\n            \"version\": \"1.0\",\r\n            \"name\": \"easy license\"\r\n        },\r\n        \"attrMap\": {\r\n            \"date\": {\r\n                \"attrType\": \"DATE\",\r\n                \"attrStr\": \"2021-12-12 34:34:12\",\r\n                \"describe\": \"日期\"\r\n            },\r\n            \"double\": {\r\n                \"attrType\": \"DOUBLE\",\r\n                \"attrStr\": \"111\",\r\n                \"describe\": \"浮点数\"\r\n            },\r\n            \"rangeDate\": {\r\n                \"attrType\": \"RANGE_DATE\",\r\n                \"attrStr\": \"[2020-00-00 00:00:00,2021-00-00 00:00:00]\",\r\n                \"describe\": \"范围日期\"\r\n            },\r\n            \"rangeDouble\": {\r\n                \"attrType\": \"RANGE_DOUBLE\",\r\n                \"attrStr\": \"[2.3,4.7]\",\r\n                \"describe\": \"范围浮点数\"\r\n            },\r\n            \"string\": {\r\n                \"attrType\": \"STRING\",\r\n                \"attrStr\": \"hello world\",\r\n                \"describe\": \"字符串\"\r\n            },\r\n            \"stringList\": {\r\n                \"attrType\": \"STRING_LIST\",\r\n                \"attrStr\": \"[hello,world]\",\r\n                \"describe\": \"字符串列表\"\r\n            }\r\n        },\r\n        \"authRegistrationCodeList\": [\r\n            \"1234567890987654321\"\r\n        ],\r\n        \"expiredTime\": \"2999-12-12 00:00:00\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:18080/license/encrypt/license/by/key"
+			},
+			"response": []
+		},
+		{
+			"name": "解析许可证",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"keys\": {\r\n        \"privateKey\": \"MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAKt8hHJ7uHlwq5kXHxH6/0NQjkzWNZgDHz9PSwxo80/fFRk7dHBmNeQxTNNTenKQ6zKic5rlCnKX52/P/MEpgczIgBD/naODQS9gzQTHRuuZHej2JL6+lxNS3UnY7wAGu71zFXmLs/2NffB5jJa8dAN2qdITf38o8JYKN0g+hnenAgMBAAECgYEAnT0jRMXktJV3AnyM5LO880Ad+p4/rg7OzAIs0kg5MXdfpS866QUPTRlXVD4q/Hmc72S9k72IAuL+NywCmisw882lVW+y87WsYUmhXjbgpUnO/GkDQ0lNU5D2ZKKHdyavDPvkZ9UTKdlkr8nFp1ADfCXrhCNSvfoPdhD9d6rOIoECQQDsfo2bOdh0E143YVFXj0ReT2hg4Agyzx1oouWPOQfnr0c5j6fk/uPQlC+Qn33u4CYN8HChcWs5TZsQK1oOJhERAkEAuaFbfu/0QrnpZuRDbYqDHEB1vswvH1l7rGWMctRG9W0iWw12el9J+jJ14w7d2kuCk7gGksKzuMbrF9GDPcv9NwJBAJ0NRfjpp0cefZkFdcFSETMYRNbgsFEdnggY9Z3xX8CKdCBTuEmow52Gazf90uHJ1Tu4ivOLoItDcFCCmaF/wiECQE/vQNQXhgpZvj0VXEfGVpEK3OktSblpMg1ZqTIlYOz8csfcs0Ec2WFI62S8GSKQU4lCvGnkN7oAxml6SdaJid8CQCl2j74roj61ibm0jr/74l2zcah68j4Fxko7Lan9Ae8T4ZWBMIs7hN8uBNBIjJ3EQyJhVHwJRDWbXn3Ww84fVTQ=\",\r\n        \"publicKey\": \"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrfIRye7h5cKuZFx8R+v9DUI5M1jWYAx8/T0sMaPNP3xUZO3RwZjXkMUzTU3pykOsyonOa5Qpyl+dvz/zBKYHMyIAQ/52jg0EvYM0Ex0brmR3o9iS+vpcTUt1J2O8ABru9cxV5i7P9jX3weYyWvHQDdqnSE39/KPCWCjdIPoZ3pwIDAQAB\"\r\n    },\r\n    \"licenseEncryptData\": \"{\\\"licenseVisible\\\":{\\\"name\\\":\\\"easy license\\\",\\\"describe\\\":\\\"xiaohuohu 自定义许可证\\\",\\\"version\\\":\\\"1.0\\\"},\\\"licenseInfo\\\":\\\"AQuAz9loU3yPXPIRX76Ft17tBZA+ijRJMH3Nc8uo8yxKgvXve+fs8bKd0ee29+cuX+Wnr85BOkJdUF0yp43UDR1kKDXh5vwpIkTswNy9/6QO5I2apaVA36CC5m/d11d4nGnYGzZde1n9qrs0prYA1b7KEmsTs5zf1P1bDVgNtnVkY7x8Tu2z/7eRx7syHmHvkSBDQSqs3rD1rCgHUo8M0QaHxsB4Mm1BoUEvpPiSiB9cSKUxS3SkLouBaBrVQrt4tfTRIyvE74K9LjuhOc27NjThEf14+vtaH3oWyr1Q0O6j63WXRbIOTRxHH5w+jDfPFdyV1DW9kszEQwFwTGAypnhnfSmx9EV4TZcfLCn6pTTgwBwlCzfxAvNX3p8ggK6nMjylp//YVbyugaSLPQP6eVFYkaBk+m//5UjOiX2w3qvFWoJVNCqLZVcs5VyNbnfrwmAh/AZfqGpcp1Am5rFOYo9WONQLj04aiCivMZpCD0IkwCw/vg91PZCyMdq6IJO0I41+ia2YTdQF6SXRsm7DKg4Gwynq6MV+gREi5qYhC+itP7nAdRVxvpwh9LYXH2AH1dy69VdxLpC59D8unE1UanGymfgQcmvWNuzQWu9FhLsG6XaqLFNGY5iISf84z80gym1oIexiYk4w3yZSberC7yJ0MkWGQ9vsQn2MxWO+03yYvpJPMhRD7a3/e+VSxe0uW7L7MB+sn0J7AgRtTAphwk9ZQscxlzt+47lDvG5UaQYKQ1Ujumh4Elr6XER3ipTcBRF8CxPTpwGz2fMWxjNEOxQ2ndXtJ2rJKBRXrB1CTt0hTfNpIQgUWJFvp2diFU9kDdyuZztmuA+iaXg2m/8QgyDGyzq41LLZl+eKzYvnbWf9ffFLqoK7GZMks7ymISa1ECETF4lLDZ3xB0FSbmz2sNR/Z0cmuRsGFQ7NgNlYjiBIx1pvx7W4IMSxBYT1lCSMYuNV3cIrqzcp2OCrJSoIW5E5TX0muqSHT8ewEmNoopEeC1U9wsAmYl01uO60NK2MIN/XQrr2dmhcVLfIBMpoVA/RYDucvM5Wh1/Cf59SEFr80Fg5q2ChW9lNOdbAc7tEHwnRQ8XK4IG3A5BQl7+PAgCLf0qeVU7tU+qYBivC/hPdiOC3NpH4FZ5WTr57fR9j206oSOICrYXTvzHCd0PGO4LBPXt5ILHOG7i+ZgYsqco=\\\"}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:18080/license/decrypt/license/by/key"
+			},
+			"response": []
+		}
+	]
+}
