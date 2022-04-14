@@ -15,6 +15,15 @@ import java.util.Map;
 @Slf4j
 public class LicenseUtil {
 
+    /**
+     * 获取自定义参数,并且不做异常拦截
+     *
+     * @param licenseData 许可证携带数据
+     * @param key         自定参数key
+     * @param tClass      自定义参数类型
+     * @return 自定义参数
+     * @throws LicenseException 参数获取异常,类型错误等
+     */
     public static <T extends LicenseAttr> T getAttrThrowable(LicenseData licenseData, String key, Class<T> tClass) throws Exception {
         try {
             if (licenseData == null || licenseData.getAttrMap() == null) {
@@ -30,6 +39,14 @@ public class LicenseUtil {
         }
     }
 
+    /**
+     * 获取自定义参数,并且异常拦截,异常时均为null
+     *
+     * @param licenseData 许可证携带数据
+     * @param key         自定参数key
+     * @param tClass      自定义参数类型
+     * @return 自定义参数
+     */
     public static <T extends LicenseAttr> T getAttr(LicenseData licenseData, String key, Class<T> tClass) {
         try {
             return getAttrThrowable(licenseData, key, tClass);
@@ -38,20 +55,12 @@ public class LicenseUtil {
         }
     }
 
-    public static <T> T parse(String data, Class<T> tClass) {
-        return JsonParser.parse(data, tClass);
-    }
-
-    public static <T> String unParse(T obj) {
-        return JsonParser.unParse(obj);
-    }
-
-    public static <T> String unParseBeautify(T obj) {
-        return JsonParser.unParseBeautify(obj);
-    }
-
     /**
-     * 判断 key 是否存在
+     * 判断许可证 key 是否存在
+     *
+     * @param key         自定义参数key
+     * @param licenseData 许可证携带数据
+     * @return 是否存在key
      */
     public static boolean hasKey(LicenseData licenseData, String key) {
         if (null == licenseData || null == key) {

@@ -23,7 +23,6 @@ public enum LicenseAttrType {
         @Override
         public LicenseAttr formatDataItem(String attrStr) {
             return new LicenseAttrDouble().setData(Double.valueOf(attrStr));
-
         }
     },
     STRING("STRING", "字符串", "格式: abc", LicenseAttrString.class) {
@@ -102,6 +101,12 @@ public enum LicenseAttrType {
 
     protected abstract LicenseAttr formatDataItem(String attrStr) throws Exception;
 
+    /**
+     * 格式字符串转换为自定义参数
+     *
+     * @param attrStr 格式字符串
+     * @return 自定义参数
+     */
     public LicenseAttr formatData(String attrStr) {
         try {
             return formatDataItem(attrStr);

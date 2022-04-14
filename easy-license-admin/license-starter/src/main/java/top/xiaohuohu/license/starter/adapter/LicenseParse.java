@@ -2,7 +2,6 @@ package top.xiaohuohu.license.starter.adapter;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Import;
-import org.springframework.stereotype.Component;
 import top.xiaohuohu.license.core.entitys.License;
 import top.xiaohuohu.license.core.enums.LicenseStatus;
 import top.xiaohuohu.license.core.exceptions.LicenseException;
@@ -11,6 +10,9 @@ import top.xiaohuohu.license.starter.configs.EnableLicenseConfig;
 
 import java.util.List;
 
+/**
+ * 许可证解析适配器
+ */
 @Slf4j
 @Import({LocalParseAdapter.class})
 public class LicenseParse implements LicenseParseAdapter {

@@ -35,12 +35,12 @@ public @interface EnableLicense {
     LicenseInitFailModel initFailModel() default LicenseInitFailModel.PASS;
 
     /**
-     * <b>许可证是否每天解析</b>
+     * <b>许可证是否周期解析</b>
      */
     boolean loopParse() default true;
 
     /**
-     * <b>循环解析cron 表达式</b>
+     * <b>周期解析 cron 表达式</b>
      */
     String loopParseCron() default "0 0 0 * * ?";
 

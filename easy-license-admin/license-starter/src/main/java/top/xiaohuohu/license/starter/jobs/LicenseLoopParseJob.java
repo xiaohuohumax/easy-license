@@ -7,6 +7,9 @@ import org.springframework.scheduling.support.CronTrigger;
 import top.xiaohuohu.license.starter.adapter.LicenseParse;
 import top.xiaohuohu.license.starter.configs.EnableLicenseConfig;
 
+/**
+ * 周期解析许可证
+ */
 @EnableScheduling
 public class LicenseLoopParseJob implements SchedulingConfigurer {
 

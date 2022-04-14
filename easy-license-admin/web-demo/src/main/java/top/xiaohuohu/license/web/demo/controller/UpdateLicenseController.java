@@ -1,6 +1,7 @@
 package top.xiaohuohu.license.web.demo.controller;
 
 import cn.hutool.core.io.FileUtil;
+import org.springframework.util.ObjectUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,9 @@ import top.xiaohuohu.license.web.demo.vo.RefreshLicenseVo;
 import javax.annotation.Resource;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * 动态更新许可证
+ */
 @RestController
 @RequestMapping("/license")
 public class UpdateLicenseController {
@@ -30,7 +34,7 @@ public class UpdateLicenseController {
      */
     @PostMapping("/refresh")
     public LResult<String> refreshLicense(@RequestBody(required = false) @Validated RefreshLicenseVo refreshLicenseVo) {
-        if (null != refreshLicenseVo) {
+        if (!ObjectUtils.isEmpty(refreshLicenseVo)) {
             // 替换许可证文件内容
             FileUtil.writeString(refreshLicenseVo.getLicenseInfo(),
                     licenseConfig.getLicenseFilePath(),

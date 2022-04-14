@@ -15,12 +15,12 @@ public class LicenseAttrItem implements Serializable {
     /**
      * 自定义参数类型
      */
-    @NotNull(message = "自定义参数类型为空!")
+    @NotNull(message = "自定义参数类型为空")
     private LicenseAttrType attrType;
     /**
      * 自定义参数
      */
-    @NotBlank(message = "自定义参数为空!")
+    @NotBlank(message = "自定义参数为空")
     private String attrStr;
 
     /**

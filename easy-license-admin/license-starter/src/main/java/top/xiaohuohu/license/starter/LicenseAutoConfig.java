@@ -12,6 +12,9 @@ import top.xiaohuohu.license.starter.enums.LicenseInitFailModel;
 import top.xiaohuohu.license.starter.events.LicenseEventPublisher;
 import top.xiaohuohu.license.starter.jobs.LicenseLoopParseJob;
 
+/**
+ * 解析许可证注册bean
+ */
 @Slf4j
 @ConditionalOnMissingBean(LicenseAutoConfig.class)
 @Import({

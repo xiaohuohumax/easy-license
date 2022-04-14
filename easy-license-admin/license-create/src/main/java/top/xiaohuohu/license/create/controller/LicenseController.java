@@ -13,6 +13,9 @@ import top.xiaohuohu.license.create.service.ILicenseService;
 import top.xiaohuohu.license.create.vo.DecryptLicenseVo;
 import top.xiaohuohu.license.create.vo.EncryptLicenseVo;
 
+/**
+ * 许可证相关接口
+ */
 @RestController
 @RequestMapping("/license")
 public class LicenseController {

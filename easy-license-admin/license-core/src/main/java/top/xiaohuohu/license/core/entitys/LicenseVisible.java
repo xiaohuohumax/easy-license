@@ -16,7 +16,7 @@ public class LicenseVisible implements Serializable {
     /**
      * 许可证名称
      */
-    @NotBlank(message = "许可证名称为空!")
+    @NotBlank(message = "许可证名称为空")
     private String name;
     /**
      * 许可证描述
@@ -26,7 +26,7 @@ public class LicenseVisible implements Serializable {
     /**
      * 版本
      */
-    @NotBlank(message = "许可证版本信息为空!")
+    @NotBlank(message = "许可证版本信息为空")
     private String version;
 
     /**

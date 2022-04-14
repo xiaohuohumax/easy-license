@@ -9,15 +9,18 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import top.xiaohuohu.license.core.entitys.License;
-import top.xiaohuohu.license.core.exceptions.LicenseException;
 import top.xiaohuohu.license.web.starter.LicenseInterceptor;
 import top.xiaohuohu.license.web.starter.adapters.InterceptorAdapter;
+import top.xiaohuohu.license.web.starter.exceptions.LicenseInterceptorException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Map;
 
+/**
+ * 接口拦截,检查是否携带验证许可注解
+ */
 @Slf4j
 public class LicenseControllerInterceptor implements HandlerInterceptor, ApplicationContextAware {
 
@@ -49,8 +52,7 @@ public class LicenseControllerInterceptor implements HandlerInterceptor, Applica
             InterceptorAdapter interceptorAdapter = getInterceptorAdapter(adapter);
             if (null == interceptorAdapter) {
                 log.warn("许可证请求拦截适配器未找到实例 {}", adapter.getName());
-                // throw new LicenseWebException("许可证请求拦截适配器未找到实例", ResultCode.FAIL);
-                throw new LicenseException("许可证请求拦截适配器未找到实例");
+                throw new LicenseInterceptorException("许可证请求拦截适配器未找到实例");
             }
 
             return interceptorAdapter.doInterceptor(request, response, handlerMethod, methodAnnotation, license);

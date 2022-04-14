@@ -8,6 +8,10 @@ import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.type.AnnotationMetadata;
 import top.xiaohuohu.license.starter.configs.EnableLicenseConfig;
 
+/**
+ * 启动器注解内容转换成 bean
+ * @see EnableLicenseConfig
+ */
 @ConditionalOnMissingBean
 public class LicenseRegistrar implements ImportBeanDefinitionRegistrar {
 

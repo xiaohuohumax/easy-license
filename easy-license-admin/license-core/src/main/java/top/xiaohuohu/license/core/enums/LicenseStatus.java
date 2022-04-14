@@ -12,9 +12,9 @@ public enum LicenseStatus {
 
     PARSE_FAIL(-99, "解析失败"),
 
-    UNAUTHORIZED(-98, "未授权"),
+    UNAUTHORIZED(-98, "未授权许可"),
 
-    EXPIRED(-97, "授权过期"),
+    EXPIRED(-97, "许可证过期"),
 
     AUTHORIZED(0, "许可证验证通过");
 
@@ -43,6 +43,11 @@ public enum LicenseStatus {
     }
 
 
+    /**
+     * 判断许可证验证是否通过
+     *
+     * @return 许可证验证是否通过
+     */
     public boolean isAuthorized() {
         return code >= 0;
     }

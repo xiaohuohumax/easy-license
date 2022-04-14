@@ -55,6 +55,9 @@ public enum MachineRegistration {
         }
     },
     AUTO() {
+        /**
+         * 简单自动识别环境,切换处理方式
+         * */
         @Override
         public String getCode() {
             boolean isWindow = System.getProperty("os.name").toLowerCase().contains("win");

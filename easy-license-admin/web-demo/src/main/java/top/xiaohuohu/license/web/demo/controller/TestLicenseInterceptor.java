@@ -7,6 +7,9 @@ import top.xiaohuohu.license.core.web.entitys.LResult;
 import top.xiaohuohu.license.core.web.utils.ResultUtil;
 import top.xiaohuohu.license.web.starter.LicenseInterceptor;
 
+/**
+ * 测试许可证限制接口
+ */
 @RestController
 @RequestMapping("/test")
 public class TestLicenseInterceptor {
@@ -27,6 +30,5 @@ public class TestLicenseInterceptor {
     public LResult<String> queryUncheck() {
         return ResultUtil.SUCCESS("查询成功");
     }
-
 
 }

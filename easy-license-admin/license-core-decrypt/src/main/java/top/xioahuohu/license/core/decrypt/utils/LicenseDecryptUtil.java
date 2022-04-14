@@ -6,7 +6,7 @@ import top.xiaohuohu.license.core.entitys.LicenseData;
 import top.xiaohuohu.license.core.entitys.LicenseInfo;
 import top.xiaohuohu.license.core.enums.LicenseStatus;
 import top.xiaohuohu.license.core.exceptions.LicenseException;
-import top.xiaohuohu.license.core.utils.LicenseUtil;
+import top.xiaohuohu.license.core.utils.JsonParser;
 import top.xiaohuohu.license.core.utils.RsaUtil;
 import top.xiaohuohu.license.core.utils.ValidationUtil;
 
@@ -16,6 +16,10 @@ import java.io.FileReader;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 许可证解密工具类
+ * 注意: 此方式通过反编译,较容易破解,所以推荐使用 c语言编写库 然后引用
+ */
 public class LicenseDecryptUtil {
 
     private static String readFile(String filePath, String errMsg) {
@@ -34,14 +38,27 @@ public class LicenseDecryptUtil {
         }
     }
 
+    /**
+     * 解析许可证 转换为 许可证携带数据
+     *
+     * @param keys           密钥对
+     * @param licenseInfoStr 许可证
+     * @return 许可证携带数据
+     */
     public static LicenseData decrypt(Keys keys, String licenseInfoStr) {
-        LicenseInfo licenseInfo = LicenseUtil.parse(licenseInfoStr, LicenseInfo.class);
-
+        LicenseInfo licenseInfo = JsonParser.parse(licenseInfoStr, LicenseInfo.class);
         String decryptStr = RsaUtil.decrypt(keys.getPublicKey(), licenseInfo.getLicenseInfo());
-
-        return LicenseUtil.parse(decryptStr, LicenseData.class);
+        return JsonParser.parse(decryptStr, LicenseData.class);
     }
 
+    /**
+     * 解析许可证文件 转换为 许可证
+     *
+     * @param licenseFilePath   许可证文件路径
+     * @param publicKeyFilePath 公钥文件路径
+     * @param registrationCode  本机注册码
+     * @return 许可证
+     */
     public static License decrypt(String licenseFilePath, String publicKeyFilePath, String registrationCode) {
         License result = new License().setRegistrationCode(registrationCode);
         try {

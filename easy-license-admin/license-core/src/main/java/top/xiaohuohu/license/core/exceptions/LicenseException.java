@@ -1,7 +1,7 @@
 package top.xiaohuohu.license.core.exceptions;
 
 /**
- * 许可证异常
+ * 许可证通用异常
  */
 public class LicenseException extends RuntimeException {
 

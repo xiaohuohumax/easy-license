@@ -17,7 +17,6 @@ public enum LicenseModel {
     private final String tipMsg;
 
     LicenseModel(Class<? extends LicenseParseAdapter> adapter, String tipMsg) {
-
         this.adapter = adapter;
         this.tipMsg = tipMsg;
     }

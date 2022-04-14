@@ -3,6 +3,9 @@ package top.xiaohuohu.license.core.web.utils;
 import top.xiaohuohu.license.core.web.entitys.LResult;
 import top.xiaohuohu.license.core.web.enums.ResultCode;
 
+/**
+ * 通用返回工具
+ */
 public class ResultUtil {
 
     public static <T> LResult<T> SUCCESS(T data, String msg) {

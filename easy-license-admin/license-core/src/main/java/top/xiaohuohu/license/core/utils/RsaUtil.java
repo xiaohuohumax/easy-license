@@ -10,13 +10,15 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 
+/**
+ * RSA 工具
+ * 注: 代码参考自 hutools RSA
+ */
 public class RsaUtil {
+
     private final static Integer KEY_SIZE = 1024;
-
     private static final KeyPairGenerator rsa;
-
     private static final KeyFactory keyFactory;
-
     private static final Cipher cipher;
 
     static {
@@ -26,7 +28,6 @@ public class RsaUtil {
             cipher = Cipher.getInstance("RSA");
 
             rsa.initialize(KEY_SIZE);
-
         } catch (Exception ignore) {
             throw new RuntimeException("RSA 异常");
         }
@@ -52,30 +53,12 @@ public class RsaUtil {
         return null;
     }
 
-    public static void main(String[] args) throws Exception {
-        Keys keys = createKeys();
-
-        String data = "{\n" +
-                "    \"info\": null,\n" +
-                "    \"authRegistrationCodeList\": [\"1234567890987654321\"],\n" +
-                "    \"expiredTime\":\"2022-02-02 12:10:11\"\n" +
-                "}";
-
-        System.out.println(keys.getPublicKey());
-
-        assert keys != null;
-
-        String encrypt = encrypt(keys.getPrivateKey(), data);
-
-        System.out.println(encrypt);
-
-        String decrypt = decrypt(keys.getPublicKey(), encrypt);
-
-        System.out.println(decrypt);
-    }
-
     /**
      * 私钥加密
+     *
+     * @param privateKeyStr 私钥
+     * @param data          数据
+     * @return 加密结果
      */
     public static String encrypt(String privateKeyStr, String data) throws Exception {
         byte[] privateKeyByte = base64Decode(privateKeyStr);
@@ -83,7 +66,7 @@ public class RsaUtil {
         cipher.init(Cipher.ENCRYPT_MODE, privateKey);
         byte[] bytes = data.getBytes(StandardCharsets.UTF_8);
 
-        ByteArrayOutputStream out = doFinal(bytes,117);
+        ByteArrayOutputStream out = doFinal(bytes, 117);
         return base64Encode(out.toByteArray());
     }
 
@@ -101,6 +84,10 @@ public class RsaUtil {
 
     /**
      * 公钥解密
+     *
+     * @param publicKeyStr 公钥
+     * @param data         数据
+     * @return 解密数据
      */
     public static String decrypt(String publicKeyStr, String data) {
         try {
@@ -108,7 +95,7 @@ public class RsaUtil {
             byte[] dataBytes = base64Decode(data);
             PublicKey publicKey = keyFactory.generatePublic(new X509EncodedKeySpec(publicKeyByte));
             cipher.init(Cipher.DECRYPT_MODE, publicKey);
-            ByteArrayOutputStream out = doFinal(dataBytes,128);
+            ByteArrayOutputStream out = doFinal(dataBytes, 128);
             return out.toString();
         } catch (Exception throwable) {
             throwable.printStackTrace();

@@ -10,14 +10,14 @@ import java.nio.charset.StandardCharsets;
  */
 public class CommandUtil {
     /**
-     * shell 工具
+     * 运行 shell 命令
      *
-     * @param cmdStr 命令
+     * @param shellStr 命令
      * @return 返回结果
      * @throws RuntimeException 命令调用错误/命令执行错误
      */
-    public static String runShell(String cmdStr) {
-        String[] cmd = {"/bin/sh", "-c", cmdStr};
+    public static String runShell(String shellStr) {
+        String[] cmd = {"/bin/sh", "-c", shellStr};
 
         try {
             Runtime runtime = Runtime.getRuntime();
@@ -43,7 +43,10 @@ public class CommandUtil {
 
 
     /**
-     * 依据BufferedReader 获取内容
+     * 依据 BufferedReader 获取内容
+     *
+     * @param cmdResultReader reader
+     * @return reader 字符串
      */
     private static String byBufferedReaderGetContext(BufferedReader cmdResultReader) throws IOException {
         String line;

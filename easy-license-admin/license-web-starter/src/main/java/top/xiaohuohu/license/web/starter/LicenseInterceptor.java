@@ -9,6 +9,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * 请求接口拦截注解
+ */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface LicenseInterceptor {
@@ -29,5 +32,5 @@ public @interface LicenseInterceptor {
     /**
      * 拦截返回错误提示
      */
-    String msg() default "许可证未获得权限!";
+    String msg() default "许可证未获得权限";
 }

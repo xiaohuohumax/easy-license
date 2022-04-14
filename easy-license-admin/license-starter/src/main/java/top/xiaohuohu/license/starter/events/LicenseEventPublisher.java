@@ -5,14 +5,17 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
-import top.xiaohuohu.license.starter.UseApplicationContext;
 import top.xiaohuohu.license.core.entitys.License;
+import top.xiaohuohu.license.starter.UseApplicationContext;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * 许可证解析事件发布
+ */
 @Slf4j
 public class LicenseEventPublisher extends UseApplicationContext implements LicenseEvent {
 
@@ -53,6 +56,4 @@ public class LicenseEventPublisher extends UseApplicationContext implements Lice
                 .sorted(Comparator.comparing(LicenseEventListener::getOrder))
                 .collect(Collectors.toList());
     }
-
-
 }

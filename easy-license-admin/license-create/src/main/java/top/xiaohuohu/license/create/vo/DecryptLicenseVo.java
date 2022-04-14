@@ -14,7 +14,7 @@ public class DecryptLicenseVo implements Serializable {
     /**
      * 许可证密钥
      */
-    @NotNull(message = "钥匙对不能为空!")
+    @NotNull(message = "钥匙对不能为空")
     private Keys keys;
     /**
      * 许可证信息

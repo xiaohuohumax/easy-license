@@ -31,6 +31,7 @@ public class WebDemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        log.info("测试demo启动成功");
         LicenseStatus status = license.getStatus();
         if (status.isAuthorized()) {
             log.info("许可证携带自定义参数如下:");
@@ -38,7 +39,7 @@ public class WebDemoApplication implements CommandLineRunner {
             Map<String, LicenseAttrItem> attrMap = data.getAttrMap();
             Set<String> keySet = attrMap.keySet();
             for (String key : keySet) {
-                log.info("key: {} value:{}", key, LicenseUtil.getAttr(data, key, attrMap.get(key).getAttrType().getTClass()));
+                log.info("键: {} 值:{}", key, LicenseUtil.getAttr(data, key, attrMap.get(key).getAttrType().getTClass()));
             }
         }
     }
