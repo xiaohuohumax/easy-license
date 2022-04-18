@@ -1,3 +1,3 @@
-<template>首页</template>
-<script setup>
-</script>
+<template>
+  <n-card>welcome use easy license</n-card>
+</template>

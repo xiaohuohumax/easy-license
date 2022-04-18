@@ -1,8 +1,9 @@
 import { defineStore } from 'pinia'
+import { darkTheme } from 'naive-ui'
 
 export const useDefineStore = defineStore("define", {
     state: () => ({
-        theme: null
+        theme: darkTheme
     }),
     getters: {
 

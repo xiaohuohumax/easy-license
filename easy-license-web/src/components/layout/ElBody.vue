@@ -1,17 +1,17 @@
 <template>
-  <div class="h-screen flex flex-col">
+  <div class="h-screen flex flex-col w-screen">
     <div class="flex-shrink-0">
       <ElHeader />
     </div>
-    <div class="flex flex-grow h-1">
+    <div class="flex flex-grow h-1 w-screen">
       <div class="flex-shrink-0" style="width: 230px">
         <ElMenu />
       </div>
-      <div class="flex-grow flex flex-col">
+      <div class="flex-grow flex flex-col w-1">
         <div class="flex-shrink-0">
           <ElHistory />
         </div>
-        <div class="flex-grow overflow-y-auto">
+        <div class="flex-grow overflow-auto">
           <ElContent />
         </div>
         <div class="flex-shrink-0">

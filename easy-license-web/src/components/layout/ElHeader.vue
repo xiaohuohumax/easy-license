@@ -18,6 +18,6 @@ import { darkTheme, lightTheme } from "naive-ui";
 const defineStore = useDefineStore();
 
 const changeThemea = (value) => {
-  defineStore.setTheme(!!value ? darkTheme : lightTheme);
+  defineStore.setTheme(!!value ? lightTheme : darkTheme);
 };
 </script>
