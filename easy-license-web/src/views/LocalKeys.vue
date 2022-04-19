@@ -26,8 +26,12 @@
         <n-space justify="space-between" align="center">
           <span>创建时间: {{ item.time }}</span>
           <n-space>
-            <n-button type="success" ghost>创建证书</n-button>
-            <n-button type="warning" ghost>下载密钥</n-button>
+            <n-button type="success" ghost @click="goToCreateLicense(item)">
+              创建证书
+            </n-button>
+            <n-button type="warning" ghost @click="downloadKeys(item)">
+              下载密钥
+            </n-button>
             <n-button
               type="error"
               ghost
@@ -45,8 +49,32 @@
 <script setup>
 import { useKeysStore } from "@/store/keys";
 import { storeToRefs } from "pinia";
+import util from "@/sctipt/util";
+import { useMessage } from "naive-ui";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
 const keysStore = useKeysStore();
+
+const message = useMessage();
 
 keysStore.loadKeys();
 const { keys } = storeToRefs(keysStore);
+
+const downloadKeys = (item) => {
+  util.saveFile(item.privateKey, `${item.describe}.privateKey`);
+  util.saveFile(item.publicKey, `${item.describe}.publicKey`);
+  message.info("下载成功!");
+};
+
+const goToCreateLicense = (item) => {
+  router.push({
+    name: "CreateLicense",
+    query: {
+      privateKey: item.privateKey,
+      publicKey: item.publicKey,
+    },
+  });
+};
 </script>

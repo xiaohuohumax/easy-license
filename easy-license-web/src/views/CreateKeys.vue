@@ -4,7 +4,7 @@
     <n-button type="info" ghost @click="saveKeys"> 保存密钥 </n-button>
     <n-button type="warning" ghost @click="downloadKeys">下载密钥</n-button>
   </n-space>
-  <n-space vertical class="mt-2">
+  <n-space vertical class="mt-4">
     <n-input v-model:value="keys.describe" type="text" placeholder="密钥描述" />
     <n-input
       v-model:value="keys.privateKey"
@@ -28,8 +28,10 @@ import moment from "moment";
 import { getCurrentInstance, ref } from "vue";
 import { useMessage } from "naive-ui";
 import { useKeysStore } from "@/store/keys";
+import util from "@/sctipt/util";
 
 const { proxy } = getCurrentInstance();
+
 const message = useMessage();
 
 const keysStore = useKeysStore();
@@ -50,9 +52,9 @@ const createKeys = () => {
     }
     keys.value.privateKey = data.privateKey;
     keys.value.publicKey = data.publicKey;
-    keys.value.describe = `密钥${moment().format("YYYY-MM-DD HH:mm:ss")}`;
+    keys.value.describe = `密钥${moment().format("YYYY-MM-DD HH-mm-ss")}`;
     keys.value.id = new Date().getTime();
-    keys.value.time = moment().format("YYYY-MM-DD HH:mm:ss");
+    keys.value.time = moment().format("YYYY-MM-DD HH-mm-ss");
     message.info("创建密钥成功!");
   });
 };
@@ -75,5 +77,8 @@ const downloadKeys = () => {
     message.error("密钥不能为空!");
     return;
   }
+  util.saveFile(keys.value.privateKey, `${keys.value.describe}.privateKey`);
+  util.saveFile(keys.value.publicKey, `${keys.value.describe}.publicKey`);
+  message.info("下载成功!");
 };
 </script>

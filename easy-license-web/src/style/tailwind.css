@@ -2,14 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar{
-    width: 7px;
-    height: 7px;
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
 }
 
-::-webkit-scrollbar-thumb{
-    border-radius: 10px;
-    box-shadow: inset 0 0 6px #cfcfd1;
-    -webkit-box-shadow: inset 0 0 6px #cfcfd1;
-    background-color: #cfcfd1;
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px #cfcfd1;
+  -webkit-box-shadow: inset 0 0 6px #cfcfd1;
+  background-color: #cfcfd1;
+}
+
+textarea:focus {
+  /* --tw-ring-color: inherit !important; */
+  box-shadow: none !important;
 }
