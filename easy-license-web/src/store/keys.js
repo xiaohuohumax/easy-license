@@ -22,7 +22,6 @@ export const useKeysStore = defineStore("keys", {
             localstorage.set(this._localKeysName, this.keys);
         },
         addKeys(keys) {
-            console.log(keys);
             this.keys.push({
                 ...this._keyFormat,
                 ...keys

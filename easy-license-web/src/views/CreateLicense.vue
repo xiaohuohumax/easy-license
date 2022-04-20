@@ -72,7 +72,7 @@
           />
         </n-form-item>
         <n-form-item label="自定义参数">
-            ~~~
+            <LicenseAttrs/>
         </n-form-item>
       </n-form>
     </n-gi>
