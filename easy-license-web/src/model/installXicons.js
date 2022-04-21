@@ -1,4 +1,4 @@
-import * as vicons from '@vicons/ionicons5'
+import * as vicons from '@/sctipt/icon'
 
 export default (app) => {
     for (const name in vicons) {

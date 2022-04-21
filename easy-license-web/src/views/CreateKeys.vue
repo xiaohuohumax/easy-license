@@ -46,16 +46,14 @@ const keys = ref({
 
 const createKeys = () => {
   proxy.$http.license.createKeys().then(({ code, data, msg }) => {
-    if (code != 0) {
-      message.error(msg);
-      return;
+    if (code == 0) {
+      keys.value.privateKey = data.privateKey;
+      keys.value.publicKey = data.publicKey;
+      keys.value.describe = `密钥${moment().format("YYYY-MM-DD HH-mm-ss")}`;
+      keys.value.id = new Date().getTime();
+      keys.value.time = moment().format("YYYY-MM-DD HH-mm-ss");
+      message.info("创建密钥成功!");
     }
-    keys.value.privateKey = data.privateKey;
-    keys.value.publicKey = data.publicKey;
-    keys.value.describe = `密钥${moment().format("YYYY-MM-DD HH-mm-ss")}`;
-    keys.value.id = new Date().getTime();
-    keys.value.time = moment().format("YYYY-MM-DD HH-mm-ss");
-    message.info("创建密钥成功!");
   });
 };
 
@@ -77,8 +75,8 @@ const downloadKeys = () => {
     message.error("密钥不能为空!");
     return;
   }
-  util.saveFile(keys.value.privateKey, `${keys.value.describe}.privateKey`);
-  util.saveFile(keys.value.publicKey, `${keys.value.describe}.publicKey`);
+  util.saveFile(keys.value.privateKey, `license.privateKey`);
+  util.saveFile(keys.value.publicKey, `license.publicKey`);
   message.info("下载成功!");
 };
 </script>

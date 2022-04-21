@@ -56,7 +56,6 @@ export const useLicenseStore = defineStore("license", {
             }
         ],
         attrModel: {
-            name: "",
             key: "",
             describe: "",
             attrStr: "",

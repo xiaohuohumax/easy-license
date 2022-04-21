@@ -16,7 +16,7 @@ requests.interceptors.response.use((response) => {
     const res = response.data
 
     if (!!res?.code && res.code < 0) {
-        message.error(res?.msg)
+        window.$message.error(res?.msg)
     }
     return res;
 }, err)
